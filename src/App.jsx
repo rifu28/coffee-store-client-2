@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h1>Tumse na jane kiu</h1>
+      <h1>Tumse na jane kiu hua</h1>
     </>
   );
 }
