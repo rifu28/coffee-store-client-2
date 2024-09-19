@@ -20,6 +20,19 @@ const AddCoffee = () => {
       details,
     };
     console.log(newCoffee);
+
+    //send data to server
+    fetch("http://localhost:5000/coffee", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
   return (
     <div className="bg-[#F4F3F0] p-24 mb-8">
