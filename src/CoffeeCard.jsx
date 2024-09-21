@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CoffeeCard = ({ coffee }) => {
@@ -53,7 +54,9 @@ const CoffeeCard = ({ coffee }) => {
           </p>
           <div className="btn-group space-x-3">
             <button className="btn bg-purple-700 text-white">View</button>
-            <button className="btn bg-green-700 text-white">Edit</button>
+            <Link to={`/updateCoffee/${_id}`}>
+              <button className="btn bg-green-700 text-white">Edit</button>
+            </Link>
             <button
               onClick={() => handleDelete(_id)}
               className="btn bg-red-700 text-white"
