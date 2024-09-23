@@ -10,9 +10,24 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    const users = { email, password };
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        fetch(`http://localhost:5000/users`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(users),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              alert("user created and added mongo");
+            }
+            console.log(data);
+          });
         form.reset();
       })
       .catch((error) => {
